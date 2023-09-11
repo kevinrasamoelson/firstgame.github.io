@@ -1,0 +1,56 @@
+$letters-colors:[
+"c1" :#e69113,
+"c2" :#cf0606,
+"c3" :#b82ac5,
+"c4" :#0c5cc5,
+"c5" :#4ddf29,
+"c6" :#fcff43,
+"c7" :#f1f1f1,
+];
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+//   body{
+  // font-family: "Helvetica Neue","Noto Sans KR",sans-serif;
+  // text-align: center;
+  // padding-top: 150px;
+//   }
+
+.funky-container{
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  perspective: 2000px;
+}
+.funky-base,
+.funky-letter{
+  font-size: 220px;
+  font-weight: bold;
+}
+.funky-base{
+  color: transparent;
+}
+.funky-letter{
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: funky 1.5s ease-in-out infinite;
+  text-shadow: black;
+}
+@keyframes funky{
+  50%{
+      transform: translateY(50px);
+  }
+}
+@for $i from 1 through 7{
+  .fl-#{$i}{
+      animation-delay: calc($i/10)*1s;
+      color: map.get{$letters-color,"c#{$i}"};
+  }
+} 
